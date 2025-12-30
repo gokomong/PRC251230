@@ -26,32 +26,32 @@ import tkinter as tk
 class NoticeBoard :#일단 노트북이라는 큰것을 만들고
     def __init__(self,name):  #무엇이 필요할까?,모듈화? 깔아놓고? 어떤것을 깔아놓아야하나?
         self.name= name
-        self.board={}#저장할 공간은 리스트로해야하나,딕셔너리로 해야하나? 또무엇이 있어야하지? self저장할공간이 DB일경우에는? 
-        self.temporary_stroage ={}#글을 쓰면 임시저장 공간에 담아놓고 그것을 저장하는 느낌
+        self.__board={}#저장할 공간은 리스트로해야하나,딕셔너리로 해야하나? 또무엇이 있어야하지? self저장할공간이 DB일경우에는? 
+        self.__temporary_stroage ={}#글을 쓰면 임시저장 공간에 담아놓고 그것을 저장하는 느낌
         # self.list = [
         #     self.board,
         #     self.temporary_stroage
         # ]
     def write(self,title,deatil): #글을 쓴다면 어디다가 쓸것인가?
-        self.temporary_stroage[title] = deatil
+        self.__temporary_stroage[title] = deatil
         print(f"임시저장 되었습니다.[{title}]")
     def save(self):
-        self.board.update(self.temporary_stroage)
-        self.temporary_stroage = {}
+        self.__board.update(self.__temporary_stroage)
+        self.__temporary_stroage = {}
         print("board에 저장했습니다.")
     def check(self,name) :
-        if name in self.board : 
+        if name in self.__board : 
             print(f"저장된글[{name}]")
-        elif name in self.temporary_stroage :
+        elif name in self.__temporary_stroage :
             print(f"임시저장된글[{name}]")
         else :
             print("저장된 글이 없습니다.")
     def output(self,name) :
-        if name in self.board :
-            print(f"{self.board}")
+        if name in self.__board :
+            print(f"내용{self.__board[name]}")
     def delete(self,name) :
-        if name in self.board :
-            del self.board[name]
+        if name in self.__board :
+            del self.__board[name]
             print(f"[{name}]을 지웠습니다")
 nb = NoticeBoard("코코몽매니아")
 # nb.write("오늘의일기","fdfdfdfdfdfdfdfdfd")        
@@ -62,6 +62,7 @@ nb.write("코코dfdf기","ㅇfㄹㅇㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇ")
 nb.save()
 nb.check("fdfdf")
 nb.delete("fdfdf")
+nb.output("코코몽일기")
 # print(nb.temporary_stroage)
 # print(nb.board)
 # nb.check("오늘의일기")
