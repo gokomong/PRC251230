@@ -1,0 +1,37 @@
+import tkinter as tk
+# ? 왜 굳이 Tk라는 메서드를 호출했을까?
+root = tk.Tk()
+# # ? 왜 매개변수자리에 = 할당연산자가 있는거지?
+
+
+# label = tk.Label(root)
+# class Test_Data:
+#     def __init__(self, label_text, pady_value):
+#         self.label_text = label_text
+#         self.pady_value = pady_value
+        
+#     def create_label(self,text,value) :
+#         self.label_text = text
+#         self.pady_value = value
+        
+        
+        
+    
+    
+    
+# test_date = Test_Data("Hello, Tkinter!", 10)
+# test_date.create_label("dff",121)
+
+
+# def create_label(text, pady):
+#     label = tk.Label(root, text=text)
+#     label.pack(pady=pady)
+
+# for _ in range(10):
+#     create_label(test_data["label_text"], test_data["pady_value"])
+
+
+
+# label.pack(pady=test_data["pady_value"])
+# ? 왜 메서드 이름이 loop 라는 뜻 이 담겨있을까?
+root.mainloop()
