@@ -34,30 +34,38 @@ class NoticeBoard :#일단 노트북이라는 큰것을 만들고
         # ]
     def write(self,title,deatil): #글을 쓴다면 어디다가 쓸것인가?
         self.temporary_stroage[title] = deatil
+        print(f"임시저장 되었습니다.[{title}]")
     def save(self):
-        self.board.append += self.temporary_stroage
+        self.board.update(self.temporary_stroage)
         self.temporary_stroage = {}
-        return
+        print("board에 저장했습니다.")
     def check(self,name) :
         if name in self.board : 
-            print(f"저장된글{name["title"]}")
-        if name in self.temporary_stroage :
-            print(f"임시저장된글{name["title"]}")
+            print(f"저장된글[{name}]")
+        elif name in self.temporary_stroage :
+            print(f"임시저장된글[{name}]")
         else :
             print("저장된 글이 없습니다.")
     def output(self,name) :
         if name in self.board :
             print(f"{self.board}")
     def delete(self,name) :
-        if name == self.board["title"] :
-            del self.board["title"]
-    nb =
-        
-
-
-
-
-
-
+        if name in self.board :
+            del self.board[name]
+            print(f"[{name}]을 지웠습니다")
+nb = NoticeBoard("코코몽매니아")
+# nb.write("오늘의일기","fdfdfdfdfdfdfdfdfd")        
+nb.write("코코몽일기","ㅇㄹㅇㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇ")
+nb.write("dfdf","ㅇㄹㅇㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇ")
+nb.write("fdfdf","ㅇfㄹㅇㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇ")
+nb.write("코코dfdf기","ㅇfㄹㅇㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇㄹㄴㅇ")
+nb.save()
+nb.check("fdfdf")
+nb.delete("fdfdf")
+# print(nb.temporary_stroage)
+# print(nb.board)
+# nb.check("오늘의일기")
+# nb.output()
+# nb.delete("오늘의일기")
 
 
