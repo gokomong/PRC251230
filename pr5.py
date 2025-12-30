@@ -4,8 +4,8 @@ import tkinter as tk
 class NoticeBoard :
     def __init__(self,name):  
         self.name= name
-        self.board={}
-        self.temporary_stroage ={}
+        self.__board={}
+        self.__temporary_stroage ={}
     def write(self,title,deatil): 
         print(f"임시저장 되었습니다.[{title}]")
     def save(self):
