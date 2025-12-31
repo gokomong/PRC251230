@@ -6,7 +6,8 @@ class NoticeBoard :
         self.__temporary_stroage ={} 
     def write(self,title,deatil): 
         self.__temporary_stroage[title] = deatil
-        print(f"임시저장 되었습니다.[{title}]")
+        return True
+        # print(f"임시저장 되었습니다.[{title}]")
     def save(self):
         self.__board.update(self.__temporary_stroage)
         self.__temporary_stroage = {}
